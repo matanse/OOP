@@ -29,7 +29,7 @@ class Hanna(Woman):
 
 class Mati(Man):
     def greeting(self):
-        print(f'Hey thats my {self.name} and I am a {self.gender}')
+        print(f'Hey thats {self.name} and he is a {self.gender}')
 
 
 class Baby(Mati, Hanna):
@@ -57,3 +57,5 @@ print('')
 print('')
 mati.greeting()
 mati.cheat('woman')
+
+mati.
