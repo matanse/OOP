@@ -58,4 +58,15 @@ print('')
 mati.greeting()
 mati.cheat('woman')
 
-mati.
+
+class MyDict(dict):
+    def __setitem__(self, key, value):
+        dict.__setitem__(self, key, value)
+
+
+dd = MyDict()
+dd['a'] = 1
+dd['b'] = 1
+dd['r'] = 1
+dd['g'] = 1
+print(dd)

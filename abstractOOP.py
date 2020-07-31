@@ -29,12 +29,14 @@ class GetSetInt(GetSetParent):
 
     def showdoc(self):
         print(
-            f'GetSetInt object {format(id(self))}, only accepts integer values')
+            f'GetSetInt object {format(id(self))}, only accepts integer values, has {len(self.value)} integers.')
 
 
 x = GetSetInt(5)
 print(x.GetValues())
-
+print('')
 x.SetValue(3)
 print(x.GetValues())
 print(x.GetLastValue())
+print('')
+x.showdoc()
