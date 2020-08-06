@@ -3,31 +3,34 @@
 """
     Usages: 
     ./dictTest.py            (reads out the entire config dict)
+    ./dictTest.py wheel      (gets the value for that key)
     ./dictTest.py wheel air  (sets wheel as key and air as value in the dict)
 """
 import sys
 import os
 from assignment3 import ConfigDict
 
-file_name = 'dict_1.txt'
+file_name = './dict_1.txt'
 dict_file = ConfigDict(file_name)
 
 if len(sys.argv) == 3:
     key = sys.argv[1]
     value = sys.argv[2]
-    print('writing "{0} = {1}" to a dict file.'.format(key, value))
     dict_file[key] = value
+    print('wrote "{0} = {1}" to a dict file.'.format(key, value))
+elif len(sys.argv) == 2:
+    print(sys.argv[1] + ' = ' + dict_file[sys.argv[1]])
 else:
     if os.path.isfile(file_name):
-        line_count = 0
+        empty = True
         print('Reading dict file: ')
         with open(file_name) as df:
             # print('        key   value')
             for line in df:
-                line_count += 1
-                key, value = line.strip().split('=', 1)
+                empty = False
+                key, value = line.rstrip().lstrip().split('=', 1)
                 print('        {0} : {1}'.format(key, value))
-            if line_count == 0:
+            if empty:
                 print('       THE FILE IS EMPTY...')
     else:
-        print('rrrrrrrrrr')
+        print('problem with file existens')

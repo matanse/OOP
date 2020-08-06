@@ -1,3 +1,4 @@
-bla  =  rrrrrrr
-bla   =   nnnnnnn
-bla = lllllll
+a=yyyyy
+c=yyyyy
+b=yyyyy
+g=yyyyyy
