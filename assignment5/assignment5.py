@@ -1,17 +1,23 @@
 import os
+import pickle
 
 
-class ConfigDict(dict):
+class ConfigPickleDict(dict):
     def __init__(self, file_name):
-        empty_file = True
         self._file_name = file_name
-        try:
-            open(self._file_name, 'r+').close()
-        except IOError:     # raise an error before the catch. why?
-            raise IOError(
-                '{0} is not a legitmate path.'.format(self._file_name))
+        if not os.path.isfile(self._file_name):
+            try:
+                with open(self._file_name, 'w') as file_handler:
+                    pickle.dump({}, file_handler)
+            except IOError:
+                raise IOError("File name type or path gets an error!")
 
         with open(self._file_name, 'r+') as file_handler:
+            empty_file = True
+            print('before load')
+            file_content = pickle.load(file_handler)
+            print('after load')
+            print(file_content)
             for line in file_handler:
                 empty_file = False
                 line = line.strip()

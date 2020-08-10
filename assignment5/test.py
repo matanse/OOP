@@ -8,10 +8,13 @@
 """
 import sys
 import os
-from assignment3 import ConfigDict
+from assignment5 import ConfigPickleDict
 
 file_name = './dict_1.txt'
-dict_file = ConfigDict(file_name)
+print('before fatching file name')
+dict_file = ConfigPickleDict(file_name)
+print('after fatching file name')
+
 
 if len(sys.argv) == 3:
     key = sys.argv[1]
