@@ -11,10 +11,7 @@ import os
 from assignment5 import ConfigPickleDict
 
 file_name = './dict_1.txt'
-print('before fatching file name')
 dict_file = ConfigPickleDict(file_name)
-print('after fatching file name')
-
 
 if len(sys.argv) == 3:
     key = sys.argv[1]
@@ -22,18 +19,18 @@ if len(sys.argv) == 3:
     dict_file[key] = value
     print('wrote "{0} = {1}" to a dict file.'.format(key, value))
 elif len(sys.argv) == 2:
-    print(sys.argv[1] + ' = ' + dict_file[sys.argv[1]])
+    print(str(sys.argv[1]) + ' = ' + str(dict_file[sys.argv[1]]))
 else:
     if os.path.isfile(file_name):
-        empty = True
-        print('Reading dict file: ')
-        with open(file_name) as df:
-            # print('        key   value')
-            for line in df:
-                empty = False
-                key, value = line.rstrip().lstrip().split('=', 1)
-                print('        {0} : {1}'.format(key, value))
-            if empty:
-                print('       THE FILE IS EMPTY...')
+        empty_file = True
+        try:
+            print('Reading file: ')
+            print('        key   value')
+            for key, val in dict_file.items():
+                empty_file = False
+                print('          {0} : {1}'.format(key, val))
+        except:
+            print('       THE FILE IS EMPTY...')
+            quit()
     else:
         print('problem with file existens')
