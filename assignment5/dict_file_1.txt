@@ -1,0 +1,17 @@
+(dp0
+.(dp0
+S'a'
+p1
+S'yyyyy'
+p2
+s.(dp0
+S'a'
+p1
+S'tttt'
+p2
+s.(dp0
+S'a'
+p1
+S'yyy'
+p2
+s.
